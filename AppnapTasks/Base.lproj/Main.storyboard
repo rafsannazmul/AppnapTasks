@@ -31,6 +31,9 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="task1ButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvM-nZ-GhX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1w-R8-yKR">
                                         <rect key="frame" x="0.0" y="180" width="214" height="120"/>
@@ -40,6 +43,9 @@
                                         <state key="normal" title="TASK 2">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="task2ButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ltZ-rY-5ik"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -82,9 +88,15 @@
                                     <navigationItem title="Select Assets" id="5ST-2C-T9p">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="D8u-9M-Oie">
                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="h7w-oj-XWw" id="M3Y-up-yby"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="fKS-fL-X5F">
                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="nextButtonAction:" destination="h7w-oj-XWw" id="ZrA-gq-XYf"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -111,10 +123,13 @@
                                         <state key="normal" title="ADD">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addAssetButtonAction:" destination="h7w-oj-XWw" eventType="touchUpInside" id="gPP-aq-YaE"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Dh-iw-ExJ">
                                         <rect key="frame" x="0.0" y="90" width="374" height="594"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,6 +159,9 @@
                             <constraint firstItem="p5Z-Mz-8LC" firstAttribute="leading" secondItem="x0q-Og-oep" secondAttribute="leading" constant="60" id="uTM-z2-HoK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionViewParentView" destination="7Dh-iw-ExJ" id="ji9-lu-ds4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALa-dN-D3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,9 +188,9 @@
                                     <navigationItem title="Select Transition" id="NwO-UY-xvF">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="3Fd-UB-nmr">
                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="Dv8-ol-ZRO">
-                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="s47-H0-r3G" id="FAG-H4-uEW"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -191,7 +209,53 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCS-eL-tGG">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="684"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="OLv-Ar-sEP">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="684"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dME-yI-Rr7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="201.5"/>
+                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Transition 1">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="transition1ButtonAction:" destination="s47-H0-r3G" eventType="touchUpInside" id="KN0-O1-1Jr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdS-Cn-qy3">
+                                                        <rect key="frame" x="0.0" y="241.5" width="374" height="201"/>
+                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Transition 2">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="transition2ButtonAction:" destination="s47-H0-r3G" eventType="touchUpInside" id="aLn-um-byi"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pv-lo-wib">
+                                                        <rect key="frame" x="0.0" y="482.5" width="374" height="201.5"/>
+                                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Transition 3">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="transition3ButtonAction:" destination="s47-H0-r3G" eventType="touchUpInside" id="ywb-70-TlL"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OLv-Ar-sEP" secondAttribute="trailing" id="IY8-du-ICp"/>
+                                            <constraint firstItem="OLv-Ar-sEP" firstAttribute="leading" secondItem="WCS-eL-tGG" secondAttribute="leading" id="J7E-SA-z3o"/>
+                                            <constraint firstItem="OLv-Ar-sEP" firstAttribute="top" secondItem="WCS-eL-tGG" secondAttribute="top" id="jB6-Ki-Fu7"/>
+                                            <constraint firstAttribute="bottom" secondItem="OLv-Ar-sEP" secondAttribute="bottom" id="tA4-ju-biT"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,6 +282,12 @@
                             <constraint firstItem="MpT-fR-ISI" firstAttribute="leading" secondItem="ZIt-Dx-Pxe" secondAttribute="leading" constant="60" id="o6s-Q4-X1D"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionViewParentView" destination="WCS-eL-tGG" id="1po-gf-MZp"/>
+                        <outlet property="transition1Button" destination="dME-yI-Rr7" id="LFd-IT-cmp"/>
+                        <outlet property="transition2Button" destination="DdS-Cn-qy3" id="oJN-SI-dQu"/>
+                        <outlet property="transition3Button" destination="2pv-lo-wib" id="FUH-1i-8VX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2T2-vX-LhJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,9 +314,15 @@
                                     <navigationItem title="Select Filter" id="Rl8-an-M2e">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="W52-OQ-ros">
                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="ZW7-9q-s8q" id="Imb-IX-fwU"/>
+                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Next" id="C6Z-0e-xsh">
                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="nextButtonAction:" destination="ZW7-9q-s8q" id="yST-5J-S1L"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -265,7 +341,53 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-uU-aRG">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="684"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="nMn-Ns-h87">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="684"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uge-jD-8tX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="201.5"/>
+                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Filter 1">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="filter1ButtonAction:" destination="ZW7-9q-s8q" eventType="touchUpInside" id="rMZ-2M-PLc"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg7-Sa-rfp">
+                                                        <rect key="frame" x="0.0" y="241.5" width="374" height="201"/>
+                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Filter 2">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="filter2ButtonAction:" destination="ZW7-9q-s8q" eventType="touchUpInside" id="KKr-BD-dej"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ri-OJ-yxt">
+                                                        <rect key="frame" x="0.0" y="482.5" width="374" height="201.5"/>
+                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Filter 3">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="filter3ButtonAction:" destination="ZW7-9q-s8q" eventType="touchUpInside" id="ne5-tG-zwA"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="nMn-Ns-h87" firstAttribute="leading" secondItem="4Ic-uU-aRG" secondAttribute="leading" id="JoW-Zj-9NK"/>
+                                            <constraint firstAttribute="bottom" secondItem="nMn-Ns-h87" secondAttribute="bottom" id="JwO-S5-OoV"/>
+                                            <constraint firstItem="nMn-Ns-h87" firstAttribute="top" secondItem="4Ic-uU-aRG" secondAttribute="top" id="QS6-tE-40b"/>
+                                            <constraint firstAttribute="trailing" secondItem="nMn-Ns-h87" secondAttribute="trailing" id="Qt1-78-dSH"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -292,15 +414,20 @@
                             <constraint firstItem="bRl-Ua-UHN" firstAttribute="trailing" secondItem="9lN-EC-x6G" secondAttribute="trailing" constant="60" id="qQN-aS-G1R"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="filter1Button" destination="uge-jD-8tX" id="xme-wf-S8a"/>
+                        <outlet property="filter2Button" destination="xg7-Sa-rfp" id="UV8-7W-ABi"/>
+                        <outlet property="filter3Button" destination="8Ri-OJ-yxt" id="LZK-Pn-tgm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9b-CD-YoB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2739" y="50"/>
         </scene>
-        <!--Filter Selection View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="Zuq-9E-RY1">
             <objects>
-                <viewController storyboardIdentifier="FilterSelectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qFC-8Y-DhO" customClass="FilterSelectionViewController" customModule="AppnapTasks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qFC-8Y-DhO" customClass="ResultViewController" customModule="AppnapTasks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Vf-73-Gyt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -318,6 +445,9 @@
                                     <navigationItem title="Save and Share" id="OLA-r7-hka">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="iRN-2l-Vfq">
                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="backButtonAction:" destination="qFC-8Y-DhO" id="8Pv-aV-VD9"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -339,6 +469,9 @@
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="saveButtonAction:" destination="qFC-8Y-DhO" eventType="touchUpInside" id="x1w-WI-iSF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbl-B2-OIU">
                                                 <rect key="frame" x="192" y="0.0" width="142" height="40"/>
@@ -347,6 +480,9 @@
                                                 <state key="normal" title="Share">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="shareButtonAction:" destination="qFC-8Y-DhO" eventType="touchUpInside" id="3Q1-UY-rB8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

@@ -54,10 +54,12 @@ class ImageToVideo{
             return
         }
         //delete any old file
-        do {
-            try FileManager.default.removeItem(at: outputMovieURL)
-        } catch {
-            print("Could not remove file \(error.localizedDescription)")
+        if FileManager.default.fileExists(atPath: outputMovieURL.absoluteString){
+            do {
+                try FileManager.default.removeItem(at: outputMovieURL)
+            } catch {
+                print("Could not remove file \(error.localizedDescription)")
+            }
         }
         //create an assetwriter instance
         guard let assetwriter = try? AVAssetWriter(outputURL: outputMovieURL, fileType: .mov) else {
