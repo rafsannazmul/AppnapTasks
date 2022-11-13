@@ -29,7 +29,7 @@ class VideoMerging{
         let videoCompositionInstruction = AVMutableVideoCompositionInstruction()
         let compositionAudioTrack = mutableComposition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
         var lastVideoEndTime = CMTime.zero
-
+        
         for (index, asset) in movieAssets.enumerated(){
             // Add video track into composition
             let videoStartTime = CMTimeCompare(lastVideoEndTime, CMTime.zero) == 0 ? CMTime.zero : CMTimeSubtract(lastVideoEndTime, timeOffsetBetweenVideos)
@@ -40,25 +40,25 @@ class VideoMerging{
             } catch {
                 print("-------->>1")
             }
-
+            
             if index == (movieAssets.count - 1) {
                 compositionVideoTrack?.scaleTimeRange(videoTrack.timeRange, toDuration: CMTimeAdd(asset.duration, timeOffsetBetweenVideos))
             }
-
+            
             // Add audio track into composition
             if let track = asset.tracks(withMediaType: .audio).first {
-
+                
                 do {
                     try compositionAudioTrack?.insertTimeRange(track.timeRange, of: track, at: videoStartTime)
                 } catch {
                     print("error")
                 }
-
+                
             } else {
                 print("no audio detected")
             }
             
-
+            
             if movieAssets.count == 1 {
                 break
             }
@@ -69,7 +69,7 @@ class VideoMerging{
                 let transform = videoTrack.preferredTransform.translatedBy(x: movieFrameSize.width / -1.0, y: 0)
                 layerInstruction.setTransformRamp(fromStart: videoTrack.preferredTransform, toEnd: transform, timeRange: transitionTimeRange)
                 layerInstruction.setOpacity(0.0, at: compositionVideoTrack!.timeRange.end)
-
+                
                 videoCompositionInstruction.layerInstructions.append(layerInstruction)
             } else if index == (movieAssets.count - 1) {
                 // Last movie has begining animation only
@@ -78,7 +78,7 @@ class VideoMerging{
                 var transform = videoTrack.preferredTransform.scaledBy(x: 0.5, y: 0.5)
                 transform = transform.translatedBy(x: movieFrameSize.width / 2, y: movieFrameSize.height / 2)
                 layerInstruction.setTransformRamp(fromStart: transform, toEnd: videoTrack.preferredTransform, timeRange: transitionTimeRange)
-
+                
                 videoCompositionInstruction.layerInstructions.append(layerInstruction)
             } else {
                 // Other movies has both begining/ending animation
@@ -87,15 +87,15 @@ class VideoMerging{
                 var transformBegin = videoTrack.preferredTransform.scaledBy(x: 0.5, y: 0.5)
                 transformBegin = transformBegin.translatedBy(x: movieFrameSize.width / 2, y: movieFrameSize.height / 2)
                 layerInstruction.setTransformRamp(fromStart: transformBegin, toEnd: videoTrack.preferredTransform, timeRange: transitionTimeRangeBegin)
-
+                
                 let transitionTimeRangeEnd = CMTimeRangeMake(start: CMTimeSubtract(compositionVideoTrack!.timeRange.end, timeOffsetBetweenVideos), duration: timeOffsetBetweenVideos)
                 let transform = videoTrack.preferredTransform.translatedBy(x: movieFrameSize.width / -1.0, y: 0)
                 layerInstruction.setTransformRamp(fromStart: videoTrack.preferredTransform, toEnd: transform, timeRange: transitionTimeRangeEnd)
                 layerInstruction.setOpacity(0.0, at: compositionVideoTrack!.timeRange.end)
-
+                
                 videoCompositionInstruction.layerInstructions.append(layerInstruction)
             }
-
+            
             lastVideoEndTime = CMTimeSubtract(compositionVideoTrack!.timeRange.end, timeOffsetBetweenVideos)
         }
         
@@ -115,19 +115,52 @@ class VideoMerging{
         }
         
         let retFileUrl = outputMovieURL
-
+        
+        
+        
+        
+        let parentLayer = CALayer()
+        
+        let videoLayer = CALayer()
+        
+        parentLayer.frame = CGRect(origin: .zero, size: mutableComposition.naturalSize)
+        videoLayer.frame = CGRect(origin: .zero, size: mutableComposition.naturalSize)
+        parentLayer.addSublayer(videoLayer)
+        
+        let name = "Test"
+        let watermarkImage = UIImage(named: name)
+        let imageLayer = CALayer()
+        imageLayer.contents = watermarkImage?.cgImage
+        
+        var xPosition : CGFloat = 0
+        var yPosition : CGFloat = 0
+        let imageSize : CGFloat = 1000
+        
+        imageLayer.frame = CGRect(origin: .zero, size: mutableComposition.naturalSize)
+        imageLayer.opacity =  0.75
+        imageLayer.backgroundColor = UIColor.red.cgColor
+        videoLayer.addSublayer(imageLayer)
+        
+        
+        
+        
+        
+        
+        
+        
         let exportSesstion = AVAssetExportSession(asset: mutableComposition, presetName: AVAssetExportPresetHighestQuality)
         exportSesstion?.outputFileType = AVFileType.mov
         exportSesstion?.outputURL = retFileUrl
         if movieAssets.count > 1 {
             videoCompositionInstruction.timeRange = CMTimeRangeMake(start: CMTime.zero, duration: mutableComposition.duration)
             videoCompositionInstruction.enablePostProcessing = false
-
+            
             let videoComposition = AVMutableVideoComposition(propertiesOf: mutableComposition)
             videoComposition.instructions = [videoCompositionInstruction]
             videoComposition.renderSize = mutableComposition.naturalSize
             videoComposition.renderScale = 1.0
             videoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
+            videoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: parentLayer)
             exportSesstion?.videoComposition = videoComposition
         }
         exportSesstion?.exportAsynchronously(completionHandler: { () -> Void in
