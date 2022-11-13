@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		181FBE93291F59C700D11C2B /* VideoMerging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181FBE92291F59C700D11C2B /* VideoMerging.swift */; };
-		184108582920957500333135 /* VideoFilterComposting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184108572920957500333135 /* VideoFilterComposting.swift */; };
+		185E233C29215DCC007D872E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E233B29215DCC007D872E /* Data.swift */; };
+		185E233E29215DF7007D872E /* CustomFillingFlowlayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E233D29215DF7007D872E /* CustomFillingFlowlayout.swift */; };
+		185E234029215E49007D872E /* CustomCVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E233F29215E49007D872E /* CustomCVViewController.swift */; };
 		187F82EC291E320100E60D7F /* UIImageToVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F82EB291E320100E60D7F /* UIImageToVideo.swift */; };
 		187F82EE291E33CB00E60D7F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F82ED291E33CB00E60D7F /* String+Extension.swift */; };
 		187F82F0291E448700E60D7F /* AssetSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F82EF291E448700E60D7F /* AssetSelectionViewController.swift */; };
-		187F82F2291E44B000E60D7F /* TransitionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F82F1291E44B000E60D7F /* TransitionSelectionViewController.swift */; };
-		187F82F4291E44C000E60D7F /* FilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F82F3291E44C000E60D7F /* FilterSelectionViewController.swift */; };
-		187F82F6291E44EB00E60D7F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F82F5291E44EB00E60D7F /* ResultViewController.swift */; };
 		187F82F8291E90B900E60D7F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187F82F7291E90B900E60D7F /* Models.swift */; };
 		18937A8F291E0E7300111723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18937A8E291E0E7300111723 /* AppDelegate.swift */; };
 		18937A91291E0E7300111723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18937A90291E0E7300111723 /* SceneDelegate.swift */; };
@@ -27,13 +26,12 @@
 
 /* Begin PBXFileReference section */
 		181FBE92291F59C700D11C2B /* VideoMerging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMerging.swift; sourceTree = "<group>"; };
-		184108572920957500333135 /* VideoFilterComposting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFilterComposting.swift; sourceTree = "<group>"; };
+		185E233B29215DCC007D872E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		185E233D29215DF7007D872E /* CustomFillingFlowlayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomFillingFlowlayout.swift; path = ../../../AppNapTaskTwo/AppNapTaskTwo/CustomFillingFlowlayout.swift; sourceTree = "<group>"; };
+		185E233F29215E49007D872E /* CustomCVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCVViewController.swift; sourceTree = "<group>"; };
 		187F82EB291E320100E60D7F /* UIImageToVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageToVideo.swift; sourceTree = "<group>"; };
 		187F82ED291E33CB00E60D7F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		187F82EF291E448700E60D7F /* AssetSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetSelectionViewController.swift; sourceTree = "<group>"; };
-		187F82F1291E44B000E60D7F /* TransitionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionSelectionViewController.swift; sourceTree = "<group>"; };
-		187F82F3291E44C000E60D7F /* FilterSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionViewController.swift; sourceTree = "<group>"; };
-		187F82F5291E44EB00E60D7F /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		187F82F7291E90B900E60D7F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		18937A8B291E0E7300111723 /* AppnapTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppnapTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18937A8E291E0E7300111723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +55,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185E233529215107007D872E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				185E233D29215DF7007D872E /* CustomFillingFlowlayout.swift */,
+				18937AA2291E0EC500111723 /* Utils.swift */,
+				187F82EB291E320100E60D7F /* UIImageToVideo.swift */,
+				187F82ED291E33CB00E60D7F /* String+Extension.swift */,
+				181FBE92291F59C700D11C2B /* VideoMerging.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		185E233629215126007D872E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				18937A92291E0E7300111723 /* ViewController.swift */,
+				185E2339292159EF007D872E /* Task 1 */,
+				185E233A29215D5C007D872E /* Task 2 */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		185E23372921513C007D872E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				187F82F7291E90B900E60D7F /* Models.swift */,
+				185E233B29215DCC007D872E /* Data.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		185E233829215161007D872E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18937A94291E0E7300111723 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		185E2339292159EF007D872E /* Task 1 */ = {
+			isa = PBXGroup;
+			children = (
+				187F82EF291E448700E60D7F /* AssetSelectionViewController.swift */,
+			);
+			path = "Task 1";
+			sourceTree = "<group>";
+		};
+		185E233A29215D5C007D872E /* Task 2 */ = {
+			isa = PBXGroup;
+			children = (
+				185E233F29215E49007D872E /* CustomCVViewController.swift */,
+			);
+			path = "Task 2";
+			sourceTree = "<group>";
+		};
 		18937A82291E0E7300111723 = {
 			isa = PBXGroup;
 			children = (
@@ -78,21 +131,13 @@
 			children = (
 				18937A8E291E0E7300111723 /* AppDelegate.swift */,
 				18937A90291E0E7300111723 /* SceneDelegate.swift */,
-				18937A92291E0E7300111723 /* ViewController.swift */,
-				18937A94291E0E7300111723 /* Main.storyboard */,
+				185E233529215107007D872E /* Utility */,
+				185E23372921513C007D872E /* Models */,
+				185E233829215161007D872E /* Views */,
+				185E233629215126007D872E /* Controllers */,
 				18937A97291E0E7500111723 /* Assets.xcassets */,
 				18937A99291E0E7500111723 /* LaunchScreen.storyboard */,
 				18937A9C291E0E7500111723 /* Info.plist */,
-				18937AA2291E0EC500111723 /* Utils.swift */,
-				187F82EB291E320100E60D7F /* UIImageToVideo.swift */,
-				187F82ED291E33CB00E60D7F /* String+Extension.swift */,
-				187F82EF291E448700E60D7F /* AssetSelectionViewController.swift */,
-				187F82F1291E44B000E60D7F /* TransitionSelectionViewController.swift */,
-				187F82F3291E44C000E60D7F /* FilterSelectionViewController.swift */,
-				187F82F5291E44EB00E60D7F /* ResultViewController.swift */,
-				187F82F7291E90B900E60D7F /* Models.swift */,
-				181FBE92291F59C700D11C2B /* VideoMerging.swift */,
-				184108572920957500333135 /* VideoFilterComposting.swift */,
 			);
 			path = AppnapTasks;
 			sourceTree = "<group>";
@@ -169,18 +214,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				187F82F8291E90B900E60D7F /* Models.swift in Sources */,
+				185E233C29215DCC007D872E /* Data.swift in Sources */,
 				181FBE93291F59C700D11C2B /* VideoMerging.swift in Sources */,
 				18937A93291E0E7300111723 /* ViewController.swift in Sources */,
 				187F82F0291E448700E60D7F /* AssetSelectionViewController.swift in Sources */,
-				187F82F4291E44C000E60D7F /* FilterSelectionViewController.swift in Sources */,
-				187F82F2291E44B000E60D7F /* TransitionSelectionViewController.swift in Sources */,
-				184108582920957500333135 /* VideoFilterComposting.swift in Sources */,
 				187F82EC291E320100E60D7F /* UIImageToVideo.swift in Sources */,
-				187F82F6291E44EB00E60D7F /* ResultViewController.swift in Sources */,
 				18937A8F291E0E7300111723 /* AppDelegate.swift in Sources */,
 				18937A91291E0E7300111723 /* SceneDelegate.swift in Sources */,
 				187F82EE291E33CB00E60D7F /* String+Extension.swift in Sources */,
 				18937AA3291E0EC500111723 /* Utils.swift in Sources */,
+				185E234029215E49007D872E /* CustomCVViewController.swift in Sources */,
+				185E233E29215DF7007D872E /* CustomFillingFlowlayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

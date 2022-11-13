@@ -11,7 +11,7 @@ import AVKit
 
 class VideoMerging{
     
-    static func merge(videos:[URL], transitionIndex:Int, filterIndex: Int, completion: @escaping (URL) -> Void){
+    static func merge(videos:[URL], completion: @escaping (URL) -> Void){
         var movieAssets : [AVAsset] = []
         var videoTrackWidths : [CGFloat] = []
         var videoTrackHeights : [CGFloat] = []
@@ -120,29 +120,22 @@ class VideoMerging{
         
         
         let parentLayer = CALayer()
-        
         let videoLayer = CALayer()
+        let filterLayer = CALayer()
         
         parentLayer.frame = CGRect(origin: .zero, size: mutableComposition.naturalSize)
         videoLayer.frame = CGRect(origin: .zero, size: mutableComposition.naturalSize)
         parentLayer.addSublayer(videoLayer)
         
-        let name = "Test"
-        let watermarkImage = UIImage(named: name)
-        let imageLayer = CALayer()
-        imageLayer.contents = watermarkImage?.cgImage
-        
-        var xPosition : CGFloat = 0
-        var yPosition : CGFloat = 0
-        let imageSize : CGFloat = 1000
-        
-        imageLayer.frame = CGRect(origin: .zero, size: mutableComposition.naturalSize)
-        imageLayer.opacity =  0.75
-        imageLayer.backgroundColor = UIColor.red.cgColor
-        videoLayer.addSublayer(imageLayer)
         
         
+        filterLayer.frame = CGRect(origin: .zero, size: mutableComposition.naturalSize)
+        videoLayer.addSublayer(filterLayer)
         
+        if let filter = CIFilter(name: "CISepiaTone"){
+            filter.setDefaults()
+            videoLayer.backgroundFilters = [filter]
+        }
         
         
         
